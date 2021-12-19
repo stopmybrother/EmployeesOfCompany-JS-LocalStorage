@@ -1,0 +1,258 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: "Raleway";
+}
+$colorBlack: #000;
+$colorBlackOpacity: rgba(0, 0, 0, 0.5);
+$backgroundBody: #f0d291;
+$backgroundInput: #f1f1cd;
+
+$backgroundBtnAddEmployee: #85e957;
+$backgroundBtnAddEmployeeHover: #9fe67e;
+$backgroundBtnAddEmployeeActive: #67eb2b;
+
+$backgroundBtnFireAnEmployee: #eb785c;
+$backgroundBtnFireAnEmployeeHover: #e9937e;
+$backgroundBtnFireAnEmployeeActive: #e75a37;
+
+$backgroundBtnShowAmountOfWages: #ece24b;
+$backgroundBtnShowAmountOfWagesHover: #ebe37d;
+$backgroundBtnShowAmountOfWagesActive: #ebdd20;
+
+$backgroundTableHead: #e4a45b;
+$backgroundTableBody: #e6cea3;
+body {
+	background-color: $backgroundBody;
+}
+button {
+	display: block;
+	text-transform: uppercase;
+	cursor: pointer;
+}
+input {
+	display: block;
+	outline: none;
+	cursor: pointer;
+}
+.container {
+	max-width: 1440px;
+	width: 100%;
+	margin: 0 auto;
+	padding: 0 16px;
+}
+.header {
+	padding: 70px 0 35px;
+	&__tittle {
+		margin: 0 auto;
+		text-align: center;
+		text-transform: uppercase;
+		font-size: 44px;
+		line-height: 48px;
+	}
+}
+.wrapper {
+	padding: 35px 0 50px;
+	&__form {
+		margin: 0 auto 40px;
+		max-width: 1032px;
+		width: 100%;
+	}
+	&__inputs {
+		display: grid;
+		grid-template-columns: repeat(4, 1fr);
+		column-gap: 50px;
+		margin-bottom: 25px;
+	}
+	&__input {
+		padding: 10px 5px;
+		color: $colorBlack;
+		font-size: 18px;
+		line-height: 20px;
+		background-color: $backgroundInput;
+		border: 1px solid $colorBlackOpacity;
+		box-shadow: 0 0 10px $colorBlackOpacity;
+		transition: all 0.3s linear;
+		&:hover {
+			border: 1px solid $colorBlack;
+		}
+		&:focus {
+			border: 1px solid $colorBlack;
+		}
+		&::placeholder {
+			color: $colorBlackOpacity;
+			font-size: 18px;
+			line-height: 20px;
+		}
+	}
+	&__button {
+		font-weight: 500;
+		&.btnAddEmployee {
+			position: relative;
+			margin: 0 auto;
+			padding: 10px;
+			max-width: 200px;
+			width: 100%;
+			font-size: 20px;
+			line-height: 24px;
+			background-color: $backgroundBtnAddEmployee;
+			border: 1px solid $colorBlackOpacity;
+			transition: all 0.2s linear 0s;
+			&::before {
+				content: "\f105";
+				font-family: "FontAwesome";
+				font-size: 25px;
+				position: absolute;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				right: 0;
+				top: 0;
+				opacity: 0;
+				height: 100%;
+				width: 40px;
+				transition: all 0.3s linear 0s;
+			}
+			&:hover {
+				text-indent: -20px;
+				background-color: $backgroundBtnAddEmployeeHover;
+				&:before {
+					opacity: 1;
+					text-indent: 0px;
+				}
+			}
+			&:active {
+				background-color: $backgroundBtnAddEmployeeActive;
+			}
+		}
+		&.btnFireAnEmployee {
+			padding: 10px;
+			max-width: 220px;
+			width: 100%;
+			font-size: 18px;
+			line-height: 22px;
+			background-color: $backgroundBtnFireAnEmployee;
+			border: 1px solid $colorBlackOpacity;
+			transition: all 0.3s linear 0s;
+			&:hover {
+				background-color: $backgroundBtnFireAnEmployeeHover;
+			}
+			&:active {
+				background-color: $backgroundBtnFireAnEmployeeActive;
+			}
+		}
+		&.btnShowAmountOfWages {
+			padding: 10px;
+			max-width: 300px;
+			width: 100%;
+			font-size: 18px;
+			line-height: 22px;
+			background-color: $backgroundBtnShowAmountOfWages;
+			border: 1px solid $colorBlackOpacity;
+			transition: all 0.3s linear 0s;
+			&:hover {
+				background-color: $backgroundBtnShowAmountOfWagesHover;
+			}
+			&:active {
+				background-color: $backgroundBtnShowAmountOfWagesActive;
+			}
+		}
+	}
+	&__info {
+		margin: 0 auto 40px;
+		max-width: 1032px;
+		width: 100%;
+		font-size: 20px;
+		line-height: 24px;
+		text-transform: uppercase;
+	}
+	&__text {
+		margin-bottom: 10px;
+		&:last-child {
+			margin-bottom: 0;
+		}
+	}
+	&__table {
+		margin: 0 auto;
+		padding: 0 16px;
+		max-width: 1032px;
+		width: 100%;
+		border-collapse: collapse;
+		font-size: 20px;
+		line-height: 24px;
+	}
+	&__tableTr {
+		&.theadTr {
+			text-transform: uppercase;
+			background-color: $backgroundTableHead;
+		}
+		&.tbodyTr {
+			font-weight: 400;
+		}
+	}
+	&__tableTh {
+		padding: 10px 5px;
+		border: 1px solid #000;
+		width: 210px;
+		&:first-child {
+			width: 50px;
+		}
+		&:nth-child(2) {
+			width: 316px;
+		}
+		&.tfootTh {
+			padding: 20px 5px;
+			border: none;
+		}
+		&.tbodyTh {
+			font-weight: 400;
+			background-color: $backgroundTableBody;
+		}
+	}
+	&__checkboxWrap {
+		width: 20px;
+		height: 20px;
+		position: relative;
+		margin: 0 auto;
+		label {
+			width: 20px;
+			height: 20px;
+			cursor: pointer;
+			position: absolute;
+			top: 0;
+			left: 0;
+			background: linear-gradient(to top, #222 0%, #45484d 100%);
+			border-radius: 4px;
+			box-shadow: inset 0px 1px 1px rgba(0, 0, 0, 0.5),
+				0px 1px 0px rgba(255, 255, 255, 0.4);
+			&:after {
+				content: "";
+				width: 9px;
+				height: 5px;
+				position: absolute;
+				top: 3.5px;
+				left: 3.5px;
+				border: 3px solid #fcfff4;
+				border-top: none;
+				border-right: none;
+				background: transparent;
+				opacity: 0;
+				transform: rotate(-45deg);
+				transition: all 0.2s linear;
+			}
+			&:hover::after {
+				opacity: 0.3;
+			}
+		}
+		input[type="checkbox"] {
+			width: 20px;
+			height: 20px;
+			visibility: hidden;
+			&:checked + label:after {
+				opacity: 1;
+			}
+		}
+	}
+}
