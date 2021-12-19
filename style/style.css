@@ -308,7 +308,6 @@ input {
 .wrapper__checkboxWrap input[type="checkbox"] {
   width: 20px;
   height: 20px;
-  visibility: hidden;
 }
 
 .wrapper__checkboxWrap input[type="checkbox"]:checked + label:after {
