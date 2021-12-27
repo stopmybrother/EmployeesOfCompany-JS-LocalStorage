@@ -21,38 +21,56 @@
 			<div class="container">
 				<form action="" id="addEmployeeForm" class="wrapper__form">
 					<div class="wrapper__inputs">
-						<input
-							type="text"
-							id="inputName"
-							class="wrapper__input"
-							placeholder="Name"
-						/>
-						<input
-							type="text"
-							id="inputDateOfBirth"
-							class="wrapper__input"
-							placeholder="Date of birth"
-						/>
-						<input
-							type="text"
-							id="inputDateOfEmployment"
-							class="wrapper__input"
-							placeholder="Employment date"
-						/>
-						<input
-							type="number"
-							id="inputWage"
-							class="wrapper__input"
-							placeholder="Wage"
-						/>
+						<div class="wrapper__inputsItem">
+							<label for="#inputName" class="wrapper__label">Enter employee's name:</label>
+							<input
+								type="text"
+								id="inputName"
+								class="wrapper__input"
+								placeholder="Name"
+							/>
+						</div>
+						<div class="wrapper__inputsItem">
+							<label for="#inputDateOfBirth" class="wrapper__label">Enter employee's date of birth:</label>
+							<input
+								type="date"
+								id="inputDateOfBirth"
+								class="wrapper__input"
+								placeholder="Date of birth"
+							/>
+						</div>
+						<div class="wrapper__inputsItem">
+							<label for="#inputDateOfEmployment" class="wrapper__label">Enter date of employment:</label>
+							<input
+								type="date"
+								id="inputDateOfEmployment"
+								class="wrapper__input"
+								placeholder="Employment date"
+							/>
+						</div>
+						<div class="wrapper__inputsItem">
+							<label for="#inputWage" class="wrapper__label">Enter employee's wage in $:</label>
+							<input
+								type="number"
+								id="inputWage"
+								class="wrapper__input"
+								placeholder="Wage"
+							/>
+						</div>
 					</div>
 					<button id="addEmployeeBtn" class="wrapper__button btnAddEmployee">
 						add emloyee
 					</button>
 				</form>
 				<div class="wrapper__info">
-					<p class="wrapper__text">the number of employees:</p>
-					<p class="wrapper__text">amount of wages:</p>
+					<div class="wrapper__infoItem">
+						<p class="wrapper__infoTittle">the number of employees:</p>
+						<p class="wrapper__infoText" id="numberOfEmployees"></p>
+					</div>
+					<div class="wrapper__infoItem">
+						<p class="wrapper__infoTittle">amount of wages:</p>
+						<p class="wrapper__infoText" id="amountOfWages"></p>
+					</div>
 				</div>
 				<table id="stuff" class="wrapper__table">
 					<thead class="wrapper__thead">
@@ -68,7 +86,7 @@
 						<tr class="wrapper__tableTr tfootTr">
 							<th colspan="2" class="wrapper__tableTh tfootTh">
 								<button id="deleteBtn" class="wrapper__button btnFireAnEmployee">
-									fire an employee
+									fire employees
 								</button>
 							</th>
 							<th colspan="3" class="wrapper__tableTh tfootTh">

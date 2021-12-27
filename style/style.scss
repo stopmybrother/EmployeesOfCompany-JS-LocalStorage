@@ -32,6 +32,9 @@ button {
 	text-transform: uppercase;
 	cursor: pointer;
 }
+label {
+	display: block;
+}
 input {
 	display: block;
 	outline: none;
@@ -63,14 +66,24 @@ input {
 	&__inputs {
 		display: grid;
 		grid-template-columns: repeat(4, 1fr);
-		column-gap: 50px;
-		margin-bottom: 25px;
+		column-gap: 30px;
+		margin-bottom: 35px;
+	}
+	&__label {
+		margin-bottom: 15px;
+		color: $colorBlack;
+		font-size: 16px;
+		line-height: 20px;
 	}
 	&__input {
 		padding: 10px 5px;
+		max-width: 100%;
+		width: 100%;
+		max-height: 46px;
+		height: 100%;
 		color: $colorBlack;
-		font-size: 18px;
-		line-height: 20px;
+		font-size: 16px;
+		line-height: 18px;
 		background-color: $backgroundInput;
 		border: 1px solid $colorBlackOpacity;
 		box-shadow: 0 0 10px $colorBlackOpacity;
@@ -83,8 +96,8 @@ input {
 		}
 		&::placeholder {
 			color: $colorBlackOpacity;
-			font-size: 18px;
-			line-height: 20px;
+			font-size: 16px;
+			line-height: 18px;
 		}
 	}
 	&__button {
@@ -168,11 +181,16 @@ input {
 		line-height: 24px;
 		text-transform: uppercase;
 	}
-	&__text {
+	&__infoItem {
+		display: flex;
 		margin-bottom: 10px;
 		&:last-child {
 			margin-bottom: 0;
 		}
+	}
+	&__infoTittle {
+		margin-right: 15px;
+		font-weight: 600;
 	}
 	&__table {
 		margin: 0 auto;
