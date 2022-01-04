@@ -177,6 +177,126 @@ input {
   background-color: #67eb2b;
 }
 
+.wrapper__button.btnSortUpBirth {
+  position: relative;
+  width: 23px;
+  height: 23px;
+  border: 1px solid #000;
+  border-radius: 50%;
+  background-color: #e49336;
+  -webkit-transition: all 0.3s linear;
+  transition: all 0.3s linear;
+}
+
+.wrapper__button.btnSortUpBirth:before {
+  content: "\f106";
+  font-family: "FontAwesome";
+  font-size: 20px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+}
+
+.wrapper__button.btnSortUpBirth:hover {
+  background-color: #e0ae73;
+}
+
+.wrapper__button.btnSortUpBirth:active {
+  background-color: #db7d11;
+}
+
+.wrapper__button.btnSortDownBirth {
+  position: relative;
+  width: 23px;
+  height: 23px;
+  border: 1px solid #000;
+  border-radius: 50%;
+  background-color: #e49336;
+  -webkit-transition: all 0.3s linear;
+  transition: all 0.3s linear;
+}
+
+.wrapper__button.btnSortDownBirth:before {
+  content: "\f107";
+  font-family: "FontAwesome";
+  font-size: 20px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+}
+
+.wrapper__button.btnSortDownBirth:hover {
+  background-color: #e0ae73;
+}
+
+.wrapper__button.btnSortDownBirth:active {
+  background-color: #db7d11;
+}
+
+.wrapper__button.btnSortUpEmploymentDate {
+  position: relative;
+  width: 23px;
+  height: 23px;
+  border: 1px solid #000;
+  border-radius: 50%;
+  background-color: #e49336;
+  -webkit-transition: all 0.3s linear;
+  transition: all 0.3s linear;
+}
+
+.wrapper__button.btnSortUpEmploymentDate:before {
+  content: "\f106";
+  font-family: "FontAwesome";
+  font-size: 20px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+}
+
+.wrapper__button.btnSortUpEmploymentDate:hover {
+  background-color: #e0ae73;
+}
+
+.wrapper__button.btnSortUpEmploymentDate:active {
+  background-color: #db7d11;
+}
+
+.wrapper__button.btnSortDownEmploymentDate {
+  position: relative;
+  width: 23px;
+  height: 23px;
+  border: 1px solid #000;
+  border-radius: 50%;
+  background-color: #e49336;
+  -webkit-transition: all 0.3s linear;
+  transition: all 0.3s linear;
+}
+
+.wrapper__button.btnSortDownEmploymentDate:before {
+  content: "\f107";
+  font-family: "FontAwesome";
+  font-size: 20px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+}
+
+.wrapper__button.btnSortDownEmploymentDate:hover {
+  background-color: #e0ae73;
+}
+
+.wrapper__button.btnSortDownEmploymentDate:active {
+  background-color: #db7d11;
+}
+
 .wrapper__button.btnFireAnEmployee {
   padding: 10px;
   max-width: 220px;
@@ -283,6 +403,53 @@ input {
 .wrapper__tableTh.tbodyTh {
   font-weight: 400;
   background-color: #e6cea3;
+}
+
+.wrapper__thDateOfBirth {
+  height: 48px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.wrapper__thDateOfEmployment {
+  height: 48px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.wrapper__thText {
+  max-width: 150px;
+  width: 100%;
+}
+
+.wrapper__thButtons {
+  max-width: 24px;
+  width: 100%;
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
 }
 
 .wrapper__checkboxWrap {

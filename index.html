@@ -22,7 +22,9 @@
 				<form action="" id="addEmployeeForm" class="wrapper__form">
 					<div class="wrapper__inputs">
 						<div class="wrapper__inputsItem">
-							<label for="#inputName" class="wrapper__label">Enter employee's name:</label>
+							<label for="#inputName" class="wrapper__label"
+								>Enter employee's name:</label
+							>
 							<input
 								type="text"
 								id="inputName"
@@ -31,7 +33,9 @@
 							/>
 						</div>
 						<div class="wrapper__inputsItem">
-							<label for="#inputDateOfBirth" class="wrapper__label">Enter employee's date of birth:</label>
+							<label for="#inputDateOfBirth" class="wrapper__label"
+								>Enter employee's date of birth:</label
+							>
 							<input
 								type="date"
 								id="inputDateOfBirth"
@@ -40,7 +44,9 @@
 							/>
 						</div>
 						<div class="wrapper__inputsItem">
-							<label for="#inputDateOfEmployment" class="wrapper__label">Enter date of employment:</label>
+							<label for="#inputDateOfEmployment" class="wrapper__label"
+								>Enter date of employment:</label
+							>
 							<input
 								type="date"
 								id="inputDateOfEmployment"
@@ -49,7 +55,9 @@
 							/>
 						</div>
 						<div class="wrapper__inputsItem">
-							<label for="#inputWage" class="wrapper__label">Enter employee's wage in $:</label>
+							<label for="#inputWage" class="wrapper__label"
+								>Enter employee's wage in $:</label
+							>
 							<input
 								type="number"
 								id="inputWage"
@@ -77,8 +85,30 @@
 						<tr class="wrapper__tableTr theadTr">
 							<th class="wrapper__tableTh"></th>
 							<th class="wrapper__tableTh">name</th>
-							<th class="wrapper__tableTh">date of birth</th>
-							<th class="wrapper__tableTh">employment date</th>
+							<th class="wrapper__tableTh">
+								<div class="wrapper__thDateOfBirth">
+									<p class="wrapper__thText">date of birth</p>
+									<div class="wrapper__thButtons">
+										<button
+											class="wrapper__button btnSortUpBirth"
+											id="btnSortDateOfBirthUp"
+										></button>
+										<button
+											class="wrapper__button btnSortDownBirth"
+											id="btnSortDateOfBirthDown"
+										></button>
+									</div>
+								</div>
+							</th>
+							<th class="wrapper__tableTh">
+								<div class="wrapper__thDateOfEmployment">
+									<p class="wrapper__thText">employment date</p>
+									<div class="wrapper__thButtons">
+										<button class="wrapper__button btnSortUpEmploymentDate"></button>
+										<button class="wrapper__button btnSortDownEmploymentDate"></button>
+									</div>
+								</div>
+							</th>
 							<th class="wrapper__tableTh">wage</th>
 						</tr>
 					</thead>
@@ -96,12 +126,11 @@
 							</th>
 						</tr>
 					</tfoot>
-					<tbody id="allEmployees" class="wrapper__tbody">
-					</tbody>
+					<tbody id="allEmployees" class="wrapper__tbody"></tbody>
 				</table>
 			</div>
 		</section>
-		
+
 		<script src="js/script.js"></script>
 	</body>
-	</html>
+</html>

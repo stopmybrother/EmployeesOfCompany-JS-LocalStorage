@@ -44,6 +44,58 @@ const addEmployees = (data) => {
 	drawStuffList(data);
 };
 
+const sortDatesOfBirthUp = (data) => {
+	data.employees.sort((a, b) => {
+		if (a.dateOfBirth > b.dateOfBirth) {
+			return 1;
+		}
+		if (a.dateOfBirth < b.dateOfBirth) {
+			return -1;
+		}
+		return 0;
+	});
+	drawStuffList(data);
+};
+
+const sortDatesIfBirthDown = (data) => {
+	data.employees.sort((a, b) => {
+		if (b.dateOfBirth > a.dateOfBirth) {
+			return 1;
+		}
+		if (b.dateOfBirth < a.dateOfBirth) {
+			return -1;
+		}
+		return 0;
+	});
+	drawStuffList(data);
+};
+
+const sortDatesOfEmploymentUp = (data) => {
+	data.employees.sort((a, b) => {
+		if (a.dateOfBirth > b.dateOfBirth) {
+			return 1;
+		}
+		if (a.dateOfBirth < b.dateOfBirth) {
+			return -1;
+		}
+		return 0;
+	});
+	drawStuffList(data);
+};
+
+const sortDatesOfEmploymentDown = (data) => {
+	data.employees.sort((a, b) => {
+		if (b.dateOfBirth > a.dateOfBirth) {
+			return 1;
+		}
+		if (b.dateOfBirth < a.dateOfBirth) {
+			return -1;
+		}
+		return 0;
+	});
+	drawStuffList(data);
+};
+
 const showNumberOfEmployes = (data) => {
 	const numberOfEmployees = document.querySelector("#numberOfEmployees");
 	numberOfEmployees.innerHTML = data.employees.length;
@@ -66,16 +118,16 @@ const deleteEmployeeFromStuffList = (data) => {
 		if (employee.checked === true) {
 			data.employees.splice(index, 1);
 		}
+		return data;
 	});
-	drawStuffList(data);
 	showNumberOfEmployes(data);
-}; //удаляет по одному
+	drawStuffList(data);
+}; //delete one by one if I click on button "fire employees"
 
 const init = () => {
 	const stuff = document.querySelector("#stuff");
 	const allEmployees = document.querySelector("#allEmployees");
 	const addEmployeeBtn = document.querySelector("#addEmployeeBtn");
-	const deleteBtn = document.querySelector("#deleteBtn");
 
 	const data = {
 		employees: [],
@@ -112,6 +164,22 @@ const init = () => {
 				break;
 			case [...event.target.classList].includes("btnShowAmountOfWages"):
 				showAmountOfWages(data);
+				console.log(data);
+				break;
+			case [...event.target.classList].includes("btnSortUpBirth"):
+				sortDatesOfBirthUp(data);
+				console.log(data);
+				break;
+			case [...event.target.classList].includes("btnSortDownBirth"):
+				sortDatesIfBirthDown(data);
+				console.log(data);
+				break;
+			case [...event.target.classList].includes("btnSortUpEmploymentDate"):
+				sortDatesOfEmploymentUp(data);
+				console.log(data);
+				break;
+			case [...event.target.classList].includes("btnSortDownEmploymentDate"):
+				sortDatesOfEmploymentDown(data);
 				console.log(data);
 				break;
 		}
