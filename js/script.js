@@ -1,40 +1,37 @@
-const drawStuffList = (data) => {
+const drawStuffList = (employees) => {
 	const allEmployees = document.querySelector("#allEmployees");
 
 	allEmployees.innerHTML = "";
-	data.employees.forEach((employee) => {
+	employees.forEach((employee) => {
 		allEmployees.innerHTML += `
 			<tr class="wrapper__tableTr">
-				<th class="wrapper__tableTh tbodyTh">
-					<div class="wrapper__checkboxWrap">
-						<input
-							type="checkbox"
-							name="chooseEmployee"
-							class="wrapper__checkbox"
-							id=${employee.id}
-						/>
-					</div>
-				</th>
-				<th class="wrapper__tableTh tbodyTh">${employee.name}</th>
-				<th class="wrapper__tableTh tbodyTh">${employee.dateOfBirth}</th>
-				<th class="wrapper__tableTh tbodyTh">${employee.dateOfEmployment}</th>
-				<th class="wrapper__tableTh tbodyTh">${employee.wage}</th>
+			<th class="wrapper__tableTh tbodyTh">
+			<div class="wrapper__checkboxWrap">
+			<input
+			type="checkbox"
+			name="chooseEmployee"
+			class="wrapper__checkbox"
+			id=${employee.id}
+			/>
+			</div>
+			</th>
+			<th class="wrapper__tableTh tbodyTh">${employee.name}</th>
+			<th class="wrapper__tableTh tbodyTh">${employee.dateOfBirth}</th>
+			<th class="wrapper__tableTh tbodyTh">${employee.dateOfEmployment}</th>
+			<th class="wrapper__tableTh tbodyTh">${employee.wage}</th>
 			</tr>
-		`;
+			`;
 	});
-	localStorage.setItem("data", JSON.stringify(data));
-	console.log(localStorage);
-	console.log(JSON.parse(localStorage.getItem("data"))); //????????????????
 };
 
-const addEmployees = (data) => {
+const addEmployees = (employees) => {
 	const addEmployeeForm = document.querySelector("#addEmployeeForm");
 	const inputName = document.querySelector("#inputName");
 	const inputDateOfBirth = document.querySelector("#inputDateOfBirth");
 	const inputDateOfEmployment = document.querySelector("#inputDateOfEmployment");
 	const inputWage = document.querySelector("#inputWage");
 
-	data.employees.push({
+	employees.push({
 		name: inputName.value,
 		dateOfBirth: inputDateOfBirth.value,
 		dateOfEmployment: inputDateOfEmployment.value,
@@ -43,44 +40,47 @@ const addEmployees = (data) => {
 		checked: false,
 	});
 
+	localStorage.setItem("employees", JSON.stringify(employees));
+
 	addEmployeeForm.reset();
-	drawStuffList(data);
+	drawStuffList(employees);
 };
 
-const sortDates = (eventTarget, data) => {
+const sortDates = (eventTarget, employees) => {
 	if (eventTarget.classList.contains("btnSortUpBirth")) {
-		data.employees.sort(
+		employees.sort(
 			(a, b) => new Date(a.dateOfBirth) - new Date(b.dateOfBirth)
 		);
 	}
 	if (eventTarget.classList.contains("btnSortDownBirth")) {
-		data.employees.sort(
+		employees.sort(
 			(a, b) => new Date(b.dateOfBirth) - new Date(a.dateOfBirth)
 		);
 	}
 	if (eventTarget.classList.contains("btnSortUpEmploymentDate")) {
-		data.employees.sort(
+		employees.sort(
 			(a, b) => new Date(a.dateOfEmployment) - new Date(b.dateOfEmployment)
 		);
 	}
 	if (eventTarget.classList.contains("btnSortDownEmploymentDate")) {
-		data.employees.sort(
+		employees.sort(
 			(a, b) => new Date(b.dateOfEmployment) - new Date(a.dateOfEmployment)
 		);
 	}
-	drawStuffList(data);
+	localStorage.setItem("employees", JSON.stringify(employees));
+	drawStuffList(employees);
 };
 
-const showNumberOfEmployes = (data) => {
+const showNumberOfEmployes = (employees) => {
 	const numberOfEmployees = document.querySelector("#numberOfEmployees");
-	numberOfEmployees.innerHTML = data.employees.length;
+	numberOfEmployees.innerHTML = employees.length;
 };
 
-const showAmountOfWages = (data) => {
+const showAmountOfWages = (employees) => {
 	const amountOfWages = document.querySelector("#amountOfWages");
 
 	let amount = 0;
-	data.employees.forEach((employee) => {
+	employees.forEach((employee) => {
 		if (employee.checked === true) {
 			amount += +employee.wage;
 		}
@@ -88,14 +88,16 @@ const showAmountOfWages = (data) => {
 	amountOfWages.innerHTML = amount + " $";
 };
 
-const deleteEmployeeFromStuffList = (data) => {
-	const newEmployees = data.employees.filter(
+const deleteEmployeeFromStuffList = (employees) => {
+	const newEmployees = employees.filter(
 		(employee) => employee.checked === false
 	);
-	data.employees = newEmployees;
+	employees = newEmployees;
 
-	showNumberOfEmployes(data);
-	drawStuffList(data);
+	localStorage.setItem("employees", JSON.stringify(employees));
+
+	showNumberOfEmployes(employees);
+	drawStuffList(employees);
 };
 
 const init = () => {
@@ -107,11 +109,18 @@ const init = () => {
 		employees: [],
 	};
 
+	if (localStorage.length > 0) {
+		let employeesFromLS = JSON.parse(localStorage.getItem("employees"));
+		data.employees = employeesFromLS;
+		drawStuffList(data.employees);
+		showNumberOfEmployes(data.employees)
+		console.log(data.employees);
+	}
+
 	addEmployeeBtn.addEventListener("click", (event) => {
 		event.preventDefault();
-		addEmployees(data);
-		showNumberOfEmployes(data);
-		console.log(data);
+		addEmployees(data.employees);
+		showNumberOfEmployes(data.employees);
 	});
 
 	allEmployees.addEventListener("click", (event) => {
@@ -124,31 +133,25 @@ const init = () => {
 				}
 				return employee;
 			});
-
-			console.log(data);
 		}
 	});
 
 	stuff.addEventListener("click", (event) => {
 		switch (true) {
 			case [...event.target.classList].includes("btnFireAnEmployee"):
-				deleteEmployeeFromStuffList(data);
-				showAmountOfWages(data);
-				console.log(data);
+				deleteEmployeeFromStuffList(data.employees);
+				showAmountOfWages(data.employees);
 				break;
 			case [...event.target.classList].includes("btnShowAmountOfWages"):
-				showAmountOfWages(data);
-				console.log(data);
+				showAmountOfWages(data.employees);
 				break;
 			case [...event.target.classList].includes("btnSortUpBirth") ||
 				[...event.target.classList].includes("btnSortDownBirth") ||
 				[...event.target.classList].includes("btnSortUpEmploymentDate") ||
 				[...event.target.classList].includes("btnSortDownEmploymentDate"):
-				sortDates(event.target, data);
-				console.log(data);
+				sortDates(event.target, data.employees);
 				break;
 		}
 	});
-	console.log(JSON.parse(localStorage.getItem("data")));
 };
 init();
